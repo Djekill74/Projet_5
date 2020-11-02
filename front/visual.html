@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orinoco - Accueil</title>
+    <meta name="keywords" content="produit vintage">
+    <meta name="description" content="vente en ligne de produit vintage">
+    <link rel="shortcut icon" type="image/png" href="">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+    <header>
+        <div class="bg-dark">
+            <div class="container">
+                <div class="row">
+                    <nav class="col navbar navbar-expand-lg navbar-dark">
+                        <a class="navbar-brand" href="index.html"><i class="fas fa-shopping-cart">&nbspOrinoco</i></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div id="navbarContent" class="collapse navbar-collapse">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="index.html">Accueil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="caddie.html">Panier</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="row">
+                    <div class="col-12 text-center titre p-3 h1"></div>
+                    <div class="col-12 text-center price p-3"></div>
+                    <div class="col-12 w-75 p-3 text-center description"></div>
+                    <div class="col-12 color text-center">
+                        <form>
+                            <label for="color">Dans quel couleur voulez vous votre peluche ?</label>
+                            <select name="color" id="option-color">
+                            </select>
+                        </form>
+                        <input type="button" value="mettre dans le panier" onclick="valideColor()">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 image"></div>
+        </div>
+    </main>
+
+
+
+    <script async src="./js/script.js"></script>
+    <script defer src="./js/function.js"></script>
+    <script defer src="./js/fetch.js"></script>
+    <script defer src="./js/visual.js"></script>
+</body>
+
+</html>
