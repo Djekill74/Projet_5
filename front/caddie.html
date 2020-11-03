@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Orinoco - Accueil</title>
-        <meta name="keywords" content="produit vintage">
-        <meta name="description" content="vente en ligne de produit vintage">
-        <link rel="shortcut icon" type="image/png" href="">
-        <meta name="robots" content="index, follow">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orinoco - Accueil</title>
+    <meta name="keywords" content="produit vintage">
+    <meta name="description" content="vente en ligne de produit vintage">
+    <link rel="shortcut icon" type="image/png" href="">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
     <header>
         <div class="bg-dark">
             <div class="container">
@@ -42,8 +44,42 @@
     </header>
 
     <main>
-        <div class="row"></div>
+        <div class="row">
+            <div class="col-12 h1 text-center">
+                <p>Panier</p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-3 col-md-2 border">Produit</div>
+            <div class="col-3 col-md-2 border">Prix Unitaire</div>
+            <div class="col-3 col-md-2 border">Nombre</div>
+            <div class="col-3 col-md-2 border">Total</div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+               <form action="finish.html" class="formulaire">
+                    <label for="name">Entrer votre nom</label>
+                    <input type="text" name="name" id="name" required>
+                    <br>
+                    <label for="prenom">Entrer votre prénom</label>
+                    <input type="text" name="prenom" id="prenom" required>
+                    <br>
+                    <label for="adresse">Entrer votre adresse</label>
+                    <input type="text" name="adresse" id="adresse" required>
+                    <br>
+                    <label for="ville">Entrer votre ville</label>
+                    <input type="text" name="ville" id="ville" required>
+                    <br>
+                    <label for="email">Entrer votre email</label>
+                    <input type="email" name="email" id="email" required>
+                    <br>
+                <input type="submit" value="Commander">
+
+                </form>
+                </div>
+        </div>
     </main>
-    
+
 </body>
+
 </html>

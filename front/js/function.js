@@ -18,7 +18,7 @@ function newDivItem2() {
     let leftDiv = document.getElementsByClassName("internalRowGeneral")[a];
     let leftDivSup = document.createElement("div");
     leftDivSup.className = "col-6 border leftDiv";
-    leftDiv.appendChild(leftDivSup);
+    leftDiv.appendChild(leftDivSup); 
 
     let rightDiv = document.getElementsByClassName("internalRowGeneral")[a];
     rightDivSup = document.createElement("div");
@@ -34,7 +34,7 @@ function newDivItem2() {
     priceDivSup = document.createElement("div");
     priceDivSup.className = "col-12 border priceDiv";
     priceDivSup.innerHTML = "price";
-    priceDiv.appendChild(priceDivSup);
+    priceDiv.appendChild(priceDivSup); 
 
     let descriptionDiv = document.getElementsByClassName("leftDiv")[a];
     descriptionDivSup = document.createElement("div");
@@ -51,10 +51,10 @@ function newOption(couleur) {
     optionCase.appendChild(optionCaseSup);
     optionCaseSup.innerHTML=couleur;
 }
-
+let selectColor;
 //fonction de validation de la couleur
 function valideColor() {
     let elementColor=document.getElementById("option-color");
-    let selectColor=elementColor.value;
+    selectColor=elementColor.value;
     console.log(selectColor);
 }
