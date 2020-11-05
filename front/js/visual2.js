@@ -1,3 +1,3 @@
-let id = new URLSearchParams(location.search);
-console.log(id.get("id"));
-fetchItem2(id);
+let teddiesId = new URLSearchParams(location.search).get("id");
+console.log(teddiesId);
+fetchItem(teddiesId);
