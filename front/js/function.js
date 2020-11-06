@@ -46,7 +46,14 @@ function newOption(couleur) {
     optionCaseSup.innerHTML=couleur;
 }
 
+//function qui cree une ligne dans le caddie par item
+function newDivCards(){
+    let cardsDivSup=document.createElement("div")[0];
 
+    let newRowCards=document.getElementsByClassName("product-row");
+    cardsDivSup.className="row d-flex justify-content-center";
+    newRowCards.appendChild(cardsDivSup);
+}
 
 
 
