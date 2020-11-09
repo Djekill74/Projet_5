@@ -1,30 +1,30 @@
-let caddie=true;
+//verification de localStorage si vide, envoie pour affichage, si non vide, creation de la page d'affichage
 
-if (caddie==true){
-let eraseEmpty= document.getElementsByClassName("empty")[0];
-while (eraseEmpty.firstChild) {
-    eraseEmpty.removeChild(eraseEmpty.firstChild);
+let caddie;
+let listItems = JSON.parse(localStorage.getItem('cards'));
+if (listItems === null) {
+    caddie = false;
+} else {
+    caddie = true;
+    b = 0;
+    for (item of listItems) {
+        newDivCards(item);
+    };
 }
-} else {     
-    let eraseFull=document.getElementsByClassName("full")[0];
+
+// si le localStorage est vide affiche un message dans le caddie, sinon affiche le caddie
+
+if (caddie == true) {
+    let eraseEmpty = document.getElementsByClassName("empty")[0];
+    while (eraseEmpty.firstChild) {
+        eraseEmpty.removeChild(eraseEmpty.firstChild);
+    }
+} else {
+    let eraseFull = document.getElementsByClassName("full")[0];
     while (eraseFull.firstChild) {
         eraseFull.removeChild(eraseFull.firstChild);
     }
 };
 
-let listItem =JSON.parse(localStorage.getItem('cards'));
-console.log(listItem);
-b=0;
-for (item of listItem) {
-    let cardsRowDivSup=document.createElement("div");
 
-    let newRowCards=document.getElementsByClassName("product-row")[0];
-    cardsRowDivSup.className="row d-flex justify-content-center row-product-cards";
-    newRowCards.appendChild(cardsRowDivSup);
 
-    let cardsDivSup=document.createElement("div");
-    let newColCards=document.getElementsByClassName('row-product-cards')[b];
-    cardsDivSup.className="col-3 col-md-2 border product-cards";
-    newColCards.appendChild(cardsDivSup);
-    b++;
-}
