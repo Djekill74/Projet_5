@@ -130,12 +130,18 @@ function newDivCards(item) {
     let inputDelDiv = document.getElementsByClassName("product-cards-modif")[b];
     inputDelDiv.appendChild(inputDel);
     inputDel.addEventListener('click', function () {
-        let indexItem=listItems.indexOf(item);
+        let indexItem = listItems.indexOf(item);
         console.log(indexItem);
-      let elementDel=listItems.splice(indexItem,1);
-      console.log(listItems);
-      console.log(elementDel);
-      localStorage.setItem('cards', JSON.stringify(listItems));
+        let elementDel = listItems.splice(indexItem, 1);
+        console.log(listItems);
+        console.log(elementDel);
+        localStorage.setItem('cards', JSON.stringify(listItems));
+//        let supRow = document.getElementsByClassName("row-product-cards")[indexItem];
+ //       console.log(supRow);
+//        let eraseRow = document.getElementsByClassName("row-product-cards")[indexItem];
+//        while (eraseRow.firstChild) {
+//            eraseRow.removeChild(eraseRow.firstChild)
+//        }
 
     })
 
