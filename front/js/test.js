@@ -1,28 +1,25 @@
-let perso= {name:'paul', hp:10};
+const contactOne = {
+    firstName:'dupont',
+    secondName: 'jacques',
+    address: '2 rue des champs',
+    city:'morzine',
+    email:'jacquod@yahoo.fr'
+};
+const productId = {
+    id:'5be9c8541c9d440000665243'
+};
+const transmisible ={
+    contact: contactOne,
+    product: productId
+}
 
-console.log(perso.hp);
-
-
-
-
-    a=0;
-    b=0;
-
-let newInput;
-for (i=0;i<3;i++){
-newInput = document.createElement("input");
-newInput.type="button";
-newInput.value=a+"+";
-newInput.id=a;
-let locationInput = document.getElementsByClassName("input-new")[0];
-locationInput.appendChild(newInput);
-
-a++;
-newInput.addEventListener('click', function() {
-    console.log(newInput.id);
-    console.log(this.id);   
-
-})
+const myInit ={ method: 'post',
+    headers: {
+        "content-type": "application/json"
+    },
+    body: JSON.stringify(transmisible)   
 }
 
 
+console.log(myInit);
+postItem();

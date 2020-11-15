@@ -136,18 +136,20 @@ function newDivCards(item) {
         console.log(listItems);
         console.log(elementDel);
         localStorage.setItem('cards', JSON.stringify(listItems));
-//        let supRow = document.getElementsByClassName("row-product-cards")[indexItem];
- //       console.log(supRow);
-//        let eraseRow = document.getElementsByClassName("row-product-cards")[indexItem];
-//        while (eraseRow.firstChild) {
-//            eraseRow.removeChild(eraseRow.firstChild)
-//        }
-
+        let supRow = document.getElementsByClassName("row-product-cards")[indexItem];
+        console.log(supRow);
+        let eraseRow = document.getElementsByClassName("row-product-cards")[indexItem];
+        while (eraseRow.firstChild) {
+            eraseRow.removeChild(eraseRow.firstChild)
+        }
+        location.reload();
     })
+
 
 
     b++;
 }
+
 
 
 

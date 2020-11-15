@@ -1,8 +1,10 @@
 //verification de localStorage si vide, envoie pour affichage, si non vide, creation de la page d'affichage
-
 let caddie;
 let listItems = JSON.parse(localStorage.getItem('cards'));
-if (listItems === null) {
+
+function verifCards() {
+
+if (listItems === null || listItems.length===0) {
     caddie = false;
 } else {
     caddie = true;
@@ -26,5 +28,6 @@ if (caddie == true) {
     }
 };
 
-
+}
+verifCards();
 

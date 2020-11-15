@@ -52,3 +52,24 @@ function fetchItem(id) {
         console.log(err);
     })
 }
+
+
+//fonction post
+
+
+
+function postItem() {
+    fetch('http://localhost:3000/api/teddies/order', myInit)
+    .then (response =>{
+        if (response.status===200) {
+            return response.json();
+        }
+        throw new Error(response);
+    })
+    .then (data => {
+        console.log(data);
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
