@@ -5,7 +5,7 @@ verifCards();
 //Validation de la commande
 
 let objetToSend;
-const submitCards = document.getElementById('submit-cards');
+const submitCards = document.getElementsByClassName('submit-cards')[0];
 submitCards.addEventListener('click', function() {
     event.preventDefault();
 
@@ -22,68 +22,54 @@ submitCards.addEventListener('click', function() {
     const city=document.getElementById("ville");
     const email=document.getElementById("email");
 
-    let messageErrorFirstName= document.getElementById("firstName-error");
-    messageErrorFirstName.innerHTML="";
-    let messageErrorLastName= document.getElementById("lastName-error");
-    messageErrorLastName.innerHTML="";
-    let messageErrorAddress= document.getElementById("address-error");
-    messageErrorAddress.innerHTML="";
-    let messageErrorCity= document.getElementById("city-error");
-    messageErrorCity.innerHTML="";
-    let messageErrorEmail= document.getElementById("email-error");
-    messageErrorEmail.innerHTML="";
-
-
-  
-    let validFirstName;
+      let validFirstName;
     if (firstName.value=="") {
-        messageErrorFirstName.innerHTML="merci de remplir cette case";
+        firstName.className="form-control border border-danger";
         validFirstName=false
     } else if (isValid(firstName.value)==false) {
-        messageErrorFirstName.innerHTML="merci de rentrer un nom correct";
+        firstName.className="form-control border border-danger";
         validFirstName=false
     } else {
         validFirstName=true
+        firstName.className="form-control";
     }
     let validLastName;
     if (lastName.value=="") {
-        messageErrorLastName.innerHTML="merci de remplir cette case";
+        lastName.className="form-control border border-danger";
         validLastName=false
     } else if (isValid(lastName.value)==false) {
-        messageErrorLastName.innerHTML="merci de rentrer un prénom correct";
+        lastName.className="form-control border border-danger";
         validLastName=false
     } else {
         validLastName=true
+        lastName.className="form-control";
     }
     let validAddress; 
     if (address.value=="") {
-        messageErrorAddress.innerHTML="merci de remplir cette case";
-        validAddress=false
-    } else if (isValid(address.value)==false) {
-        messageErrorAddress.innerHTML="merci de rentrer une adresse correct";
+        address.className="form-control border border-danger";
         validAddress=false
     } else {
         validAddress=true
+        address.className="form-control";
     }
     let validCity;
     if (city.value=="") {
-        messageErrorCity.innerHTML="merci de remplir cette case";
-        validCity=false
-    } else if (isValid(city.value)==false) {
-        messageErrorCity.innerHTML="merci de rentrer une ville correct";
+        city.className="form-control border border-danger";
         validCity=false
     } else {
         validCity=true
+        city.className="form-control";
     }
     let validEmail;
     if (email.value=="") {
-        messageErrorEmail.innerHTML="merci de remplir cette case";
+        email.className="form-control border border-danger";
         validEmail=false
     } else if (emailIsValid(email.value)==false) {
-        messageErrorEmail.innerHTML="merci de rentrer un emial correct";
+        email.className="form-control border border-danger";
         validEmail=false
     } else {
         validEmail=true
+        email.className="form-control";
     }
 
 

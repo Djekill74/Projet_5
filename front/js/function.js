@@ -7,15 +7,15 @@ let titleDivSup, priceDivSup, descriptionDivSup, rightDivSup;
 function newDivItem2() {
     let generalDiv = document.getElementsByClassName("row")[2];
     let generalDivSup = document.createElement("div");
-    generalDivSup.className = "col-12 col-lg-6 col-xl-4 border generalDiv";
+    generalDivSup.className = "col-12 col-lg-6 col-xl-4 generalDiv shadow mb-5";
     generalDiv.appendChild(generalDivSup);
     let rowDiv = document.getElementsByClassName("generalDiv")[a];
     let rowDivSup = document.createElement("div");
-    rowDivSup.className = "row border internalRowGeneral";
+    rowDivSup.className = "row internalRowGeneral m-1";
     rowDiv.appendChild(rowDivSup);
     let leftDiv = document.getElementsByClassName("internalRowGeneral")[a];
     let leftDivSup = document.createElement("div");
-    leftDivSup.className = "col-6 border leftDiv";
+    leftDivSup.className = "col-6 leftDiv";
     leftDiv.appendChild(leftDivSup);
     let rightDiv = document.getElementsByClassName("internalRowGeneral")[a];
     rightDivSup = document.createElement("div");
@@ -23,16 +23,16 @@ function newDivItem2() {
     rightDiv.appendChild(rightDivSup);
     let titleDiv = document.getElementsByClassName("leftDiv")[a];
     titleDivSup = document.createElement("div");
-    titleDivSup.className = "col-12 border text-center titletDiv";
+    titleDivSup.className = "col-12 border text-center titletDiv m-1";
     titleDiv.appendChild(titleDivSup);
     let priceDiv = document.getElementsByClassName("leftDiv")[a];
     priceDivSup = document.createElement("div");
-    priceDivSup.className = "col-12 border priceDiv";
+    priceDivSup.className = "col-12 border priceDiv m-1";
     priceDivSup.innerHTML = "price";
     priceDiv.appendChild(priceDivSup);
     let descriptionDiv = document.getElementsByClassName("leftDiv")[a];
     descriptionDivSup = document.createElement("div");
-    descriptionDivSup.className = "col-12 border priceDiv";
+    descriptionDivSup.className = "col-12 border priceDiv m-1";
     descriptionDivSup.innerHTML = "description";
     descriptionDiv.appendChild(descriptionDivSup);
 }
@@ -130,19 +130,27 @@ function newDivCards(item) {
     let inputDelDiv = document.getElementsByClassName("product-cards-modif")[b];
     inputDelDiv.appendChild(inputDel);
     inputDel.addEventListener('click', function () {
-        let indexItem = listItems.indexOf(item);
-        console.log(indexItem);
-        let elementDel = listItems.splice(indexItem, 1);
-        console.log(listItems);
-        console.log(elementDel);
-        localStorage.setItem('cards', JSON.stringify(listItems));
-        let supRow = document.getElementsByClassName("row-product-cards")[indexItem];
-        console.log(supRow);
-        let eraseRow = document.getElementsByClassName("row-product-cards")[indexItem];
-        while (eraseRow.firstChild) {
-            eraseRow.removeChild(eraseRow.firstChild)
-        }
-        location.reload();
+        const verifArray = document.getElementById("verif");
+        verifArray.innerHTML = "<div class='alert alert-success alert-dismissible fade show' role='alert'>" +
+            "<h5 class='alert-heading'>Etes vous sur de vouloir supprimer cet aricle du panier ?</h5>" +
+            "<button type='submit' class='m-1' id='yes'>oui</button>" +
+            "<button type='button' data-dismiss='alert' aria-label='Close'>non</button></div>"
+        let supConfirm = document.getElementById("yes");
+        supConfirm.addEventListener('click', function () {
+            let indexItem = listItems.indexOf(item);
+            console.log(indexItem);
+            let elementDel = listItems.splice(indexItem, 1);
+            console.log(listItems);
+            console.log(elementDel);
+            localStorage.setItem('cards', JSON.stringify(listItems));
+            let supRow = document.getElementsByClassName("row-product-cards")[indexItem];
+            console.log(supRow);
+            let eraseRow = document.getElementsByClassName("row-product-cards")[indexItem];
+            while (eraseRow.firstChild) {
+                eraseRow.removeChild(eraseRow.firstChild)
+            }
+            location.reload();
+        })
     })
     b++;
 }
@@ -184,8 +192,8 @@ function verifCards() {
 
 function isValid(value) {
     return /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/.test(value)
-    }
+}
 
-function emailIsValid (value) {
+function emailIsValid(value) {
     return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value)
 }
