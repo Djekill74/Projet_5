@@ -90,6 +90,9 @@ submitCards.addEventListener('click', function() {
 
     if (validFirstName==true && validLastName==true && validAddress==true && validCity==true && validEmail==true){
     postItem();
+    setTimeout(function() {
+        window.location.href="./finish.html"
+    }, 2000);
     } else {
         console.log("il manque un truc")
     }

@@ -60,11 +60,11 @@ function finishPage(){
 }
 
 let idCards;
-function postItem() {
+async function postItem() {
 
     let headers = new Headers({ 'content-Type': 'application/json' })
 
-    fetch('http://localhost:3000/api/teddies/order', {
+   await fetch('http://localhost:3000/api/teddies/order', {
         method: 'POST',
         body: JSON.stringify(objetToSend),
         headers: headers
@@ -83,7 +83,8 @@ function postItem() {
         console.log(err)
     })
 
-//    setTimeout(finishPage(), 20000);
+    
 //    window.location.href="./finish.html"
 }
+
 
