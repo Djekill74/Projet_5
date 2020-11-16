@@ -144,12 +144,48 @@ function newDivCards(item) {
         }
         location.reload();
     })
-
-
-
     b++;
 }
 
 
 
+//verification de localStorage si vide, envoie pour affichage, si non vide, creation de la page d'affichage
+let caddie;
+let listItems = JSON.parse(localStorage.getItem('cards'));
+function verifCards() {
 
+    if (listItems === null || listItems.length === 0) {
+        caddie = false;
+    } else {
+        caddie = true;
+        b = 0;
+        for (item of listItems) {
+            newDivCards(item);
+        };
+    }
+    // si le localStorage est vide affiche un message dans le caddie, sinon affiche le caddie
+
+    if (caddie == true) {
+        let eraseEmpty = document.getElementsByClassName("empty")[0];
+        while (eraseEmpty.firstChild) {
+            eraseEmpty.removeChild(eraseEmpty.firstChild);
+        }
+    } else {
+        let eraseFull = document.getElementsByClassName("full")[0];
+        while (eraseFull.firstChild) {
+            eraseFull.removeChild(eraseFull.firstChild);
+        }
+    };
+
+}
+
+
+// fonction de verification de validité des données
+
+function isValid(value) {
+    return /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/.test(value)
+    }
+
+function emailIsValid (value) {
+    return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value)
+}

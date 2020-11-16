@@ -68,22 +68,22 @@
                 <div class="col-6">
                     <form action="finish.html" class="formulaire">
                         <label for="name">Entrer votre nom</label>
-                        <input type="text" name="name" id="name" required>
+                        <input type="text" name="name" id="name"><span id="firstName-error"></span>
                         <br>
                         <label for="prenom">Entrer votre prénom</label>
-                        <input type="text" name="prenom" id="prenom" required>
+                        <input type="text" name="prenom" id="prenom"><span id="lastName-error"></span>
                         <br>
                         <label for="adresse">Entrer votre adresse</label>
-                        <input type="text" name="adresse" id="adresse" required>
+                        <input type="text" name="adresse" id="adresse"><span id="address-error"></span>
                         <br>
                         <label for="ville">Entrer votre ville</label>
-                        <input type="text" name="ville" id="ville" required>
+                        <input type="text" name="ville" id="ville"><span id="city-error"></span>
                         <br>
                         <label for="email">Entrer votre email</label>
-                        <input type="email" name="email" id="email" required>
+                        <input type="email" name="email" id="email"><span id="email-error"></span>
                         <br>
                         <br>
-                        <input type="submit" value="Commander">
+                        <input type="submit" value="Commander" id="submit-cards">
 
                     </form>
                 </div>
@@ -91,8 +91,9 @@
         </div>
     </main>
     <script defer src="./js/function.js"></script>
+    <script defer src="./js/fetch.js"></script>
     <script defer src="./js/caddie.js"></script>
-    <script defer src="./js/consolelog.js"></script>
+ 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
