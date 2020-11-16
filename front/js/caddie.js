@@ -48,12 +48,18 @@ submitCards.addEventListener('click', function() {
     if (address.value=="") {
         address.className="form-control border border-danger";
         validAddress=false
-    } else {
+    } else if (AdressIsValid(address.value)==false) {
+        address.className="form-control border border-danger";
+        validAddress=false
+    } else  {
         validAddress=true
         address.className="form-control";
     }
     let validCity;
     if (city.value=="") {
+        city.className="form-control border border-danger";
+        validCity=false
+    } else if (isValid(city.value)==false) {
         city.className="form-control border border-danger";
         validCity=false
     } else {
@@ -90,6 +96,13 @@ submitCards.addEventListener('click', function() {
 
     if (validFirstName==true && validLastName==true && validAddress==true && validCity==true && validEmail==true){
     postItem();
+    let commandButton= document.getElementsByClassName("command-button")[0];
+    console.warn(commandButton);
+    commandButton.innerHTML='<button class="btn btn-primary" type="button" disabled>'+
+    '<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>'+
+    'Loading...'+
+  '</button>'
+
     setTimeout(function() {
         window.location.href="./finish.html"
     }, 2000);

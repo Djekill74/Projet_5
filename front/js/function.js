@@ -19,20 +19,20 @@ function newDivItem2() {
     leftDiv.appendChild(leftDivSup);
     let rightDiv = document.getElementsByClassName("internalRowGeneral")[a];
     rightDivSup = document.createElement("div");
-    rightDivSup.className = "col-6 border rightDiv";
+    rightDivSup.className = "col-6 rightDiv";
     rightDiv.appendChild(rightDivSup);
     let titleDiv = document.getElementsByClassName("leftDiv")[a];
     titleDivSup = document.createElement("div");
-    titleDivSup.className = "col-12 border text-center titletDiv m-1";
+    titleDivSup.className = "col-12 text-center titletDiv m-1";
     titleDiv.appendChild(titleDivSup);
     let priceDiv = document.getElementsByClassName("leftDiv")[a];
     priceDivSup = document.createElement("div");
-    priceDivSup.className = "col-12 border priceDiv m-1";
+    priceDivSup.className = "col-12 priceDiv m-1";
     priceDivSup.innerHTML = "price";
     priceDiv.appendChild(priceDivSup);
     let descriptionDiv = document.getElementsByClassName("leftDiv")[a];
     descriptionDivSup = document.createElement("div");
-    descriptionDivSup.className = "col-12 border priceDiv m-1";
+    descriptionDivSup.className = "col-12 priceDiv m-1";
     descriptionDivSup.innerHTML = "description";
     descriptionDiv.appendChild(descriptionDivSup);
 }
@@ -64,7 +64,7 @@ function newDivCards(item) {
     let newColPriceCards = document.getElementsByClassName('row-product-cards')[b];
     cardsDivPriceSup.className = "col-2 col-md-2 border product-cards";
     newColPriceCards.appendChild(cardsDivPriceSup);
-    cardsDivPriceSup.innerHTML = item.price;
+    cardsDivPriceSup.innerHTML = item.price+"€";
 
     let cardsDivAmountSup = document.createElement("div");
     let newColAmountCards = document.getElementsByClassName('row-product-cards')[b];
@@ -76,7 +76,7 @@ function newDivCards(item) {
     let newColTotalCards = document.getElementsByClassName('row-product-cards')[b];
     cardsDivTotalSup.className = "col-2 col-md-2 border product-cards";
     newColTotalCards.appendChild(cardsDivTotalSup);
-    let totalCards = item.price * item.amounts;
+    let totalCards = item.price * item.amounts+"€";
     cardsDivTotalSup.innerHTML = totalCards;
 
     let cardsDivModifSup = document.createElement("div");
@@ -97,7 +97,7 @@ function newDivCards(item) {
         inputMoins.value = "-";
         item.amounts++;
         cardsDivAmountSup.innerHTML = item.amounts;
-        totalCards = item.price * item.amounts;
+        totalCards = item.price * item.amounts+"€";
         cardsDivTotalSup.innerHTML = totalCards;
         localStorage.setItem('cards', JSON.stringify(listItems));
     })
@@ -114,7 +114,7 @@ function newDivCards(item) {
             console.log(item.amounts);
             item.amounts--;
             cardsDivAmountSup.innerHTML = item.amounts;
-            totalCards = item.price * item.amounts;
+            totalCards = item.price * item.amounts+"€";
             cardsDivTotalSup.innerHTML = totalCards;
             localStorage.setItem('cards', JSON.stringify(listItems));
             if (item.amounts == 0) {
@@ -191,7 +191,11 @@ function verifCards() {
 // fonction de verification de validité des données
 
 function isValid(value) {
-    return /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/.test(value)
+    return /^[a-zA-ZéèôîïÉÈÎÏ][a-zéôèêàçîï]+([-'\s][a-zA-ZéèôîïÉÈÎÏ\s][a-zéèêôàçîï\s]+)?$/.test(value)
+}
+
+function AdressIsValid(value) {
+    return /^[1-9a-zA-ZéèôîïÉÈÎÏ][0-9a-zéôèêàçîï]+([-'\s][0-9a-zA-ZéèôîïÉÈÎÏ\s][0-9a-zéèêôàçîï\s]+)?$/.test(value)
 }
 
 function emailIsValid(value) {

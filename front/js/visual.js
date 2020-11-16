@@ -13,8 +13,7 @@ function valideChoice() {
     }
 
     // sinon verification de la presence de l'id dans le localStorage
-    let testId=false;
-  console.log(listItems);
+    let testId=false; 
     for (item of listItems) {
         if (teddiesId===item.id){           
             testId=true;
@@ -26,11 +25,11 @@ function valideChoice() {
 
     if (testId===true) {
         item.amounts++;
-    } else {
+    } else {      
         const objet = {
             id: teddiesId,
             name: titreArea.innerHTML,    
-            price: priceAera.innerHTML,
+            price: parseInt(priceAera.innerHTML),
             amounts: amount      
         }       
        listItems.push(objet);    

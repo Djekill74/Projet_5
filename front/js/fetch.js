@@ -13,7 +13,7 @@ function fetchMenu() {
             for (let item of data) {
                 newDivItem2();
                 titleDivSup.innerHTML = "<a href='visual.html?id=" + item._id + "'>" + item.name + "</a>";
-                priceDivSup.innerHTML = item.price;
+                priceDivSup.innerHTML = item.price+"€";
                 descriptionDivSup.innerHTML = item.description;
                 rightDivSup.innerHTML = '<a href="visual.html?id=' + item._id + '"><img src="' + item.imageUrl + '" class="mw-100" alt="description" /></a>';
                 a++;
@@ -41,7 +41,7 @@ function fetchItem(id) {
             let imageArea = document.getElementsByClassName("image")[0];
             imageArea.innerHTML = "<img src='" + data.imageUrl + "' class='mw-100 alt='photo'/>";
             titreArea.innerHTML = data.name;
-            priceAera.innerHTML = data.price;
+            priceAera.innerHTML = data.price+"€";
             let descriptionArea = document.getElementsByClassName("description")[0];
             descriptionArea.innerHTML = data.description;
             for (let color of data.colors) {
@@ -55,9 +55,6 @@ function fetchItem(id) {
 
 
 //fonction post
-function finishPage(){
-    window.location.href="./finish.html";
-}
 
 let idCards;
 async function postItem() {
@@ -84,7 +81,7 @@ async function postItem() {
     })
 
     
-//    window.location.href="./finish.html"
+
 }
 
 
