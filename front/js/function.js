@@ -74,7 +74,7 @@ function newDivCards(item) {
 
     let cardsDivTotalSup = document.createElement("div");
     let newColTotalCards = document.getElementsByClassName('row-product-cards')[b];
-    cardsDivTotalSup.className = "col-2 col-md-2 border product-cards";
+    cardsDivTotalSup.className = "col-2 col-md-2 border product-cards total";
     newColTotalCards.appendChild(cardsDivTotalSup);
     let totalCards = item.price * item.amounts+"€";
     cardsDivTotalSup.innerHTML = totalCards;
@@ -99,6 +99,7 @@ function newDivCards(item) {
         cardsDivAmountSup.innerHTML = item.amounts;
         totalCards = item.price * item.amounts+"€";
         cardsDivTotalSup.innerHTML = totalCards;
+        Total();
         localStorage.setItem('cards', JSON.stringify(listItems));
     })
 
@@ -116,6 +117,7 @@ function newDivCards(item) {
             cardsDivAmountSup.innerHTML = item.amounts;
             totalCards = item.price * item.amounts+"€";
             cardsDivTotalSup.innerHTML = totalCards;
+            Total();
             localStorage.setItem('cards', JSON.stringify(listItems));
             if (item.amounts == 0) {
                 inputMoins.value = "/";
@@ -156,37 +158,18 @@ function newDivCards(item) {
 }
 
 
+function Total () {
+    let total=0;
 
-//verification de localStorage si vide, envoie pour affichage, si non vide, creation de la page d'affichage
-let caddie;
-let listItems = JSON.parse(localStorage.getItem('cards'));
-function verifCards() {
-
-    if (listItems === null || listItems.length === 0) {
-        caddie = false;
-    } else {
-        caddie = true;
-        b = 0;
-        for (item of listItems) {
-            newDivCards(item);
-        };
-    }
-    // si le localStorage est vide affiche un message dans le caddie, sinon affiche le caddie
-
-    if (caddie == true) {
-        let eraseEmpty = document.getElementsByClassName("empty")[0];
-        while (eraseEmpty.firstChild) {
-            eraseEmpty.removeChild(eraseEmpty.firstChild);
-        }
-    } else {
-        let eraseFull = document.getElementsByClassName("full")[0];
-        while (eraseFull.firstChild) {
-            eraseFull.removeChild(eraseFull.firstChild);
-        }
-    };
-
+for (let t=0, len=listItems.length;t<len;t++) {
+    let listOfTotal = document.getElementsByClassName('total')[t];
+     listOfTotal =parseInt(listOfTotal.innerHTML);
+     total=total+listOfTotal;     
+     console.log(total);
 }
-
+let arrayTotal = document.getElementsByClassName('array-total')[0];
+arrayTotal.innerHTML=total;
+}
 
 // fonction de verification de validité des données
 
@@ -199,5 +182,6 @@ function AdressIsValid(value) {
 }
 
 function emailIsValid(value) {
-    return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value)
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)
+    // /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value)
 }
